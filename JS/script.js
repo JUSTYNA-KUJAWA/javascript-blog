@@ -1,56 +1,26 @@
-{
-    let argButtonName, buttonRock, buttonPaper;
- //COMPUTER MOVE
-const getMoveName = function (argMoveId) {
-    console.log('wywołano funkcję getMoveName z argumentem: ' + argMoveId);
-    if (argMoveId == 1) {
-    return 'kamień';
-    } else if (argMoveId == 2) {
-    return 'papier';
-    } else if (argMoveId == 3) {
-    return 'nożyce';
-    } else {
-    printMessage('Nie znam ruchu o id ' + argMoveId + 'Zagraj jeszcze raz');
-        return 'nieznany ruch';
-    }
-}
-//RESULT
-const displayResult = function (argPlayerMove, argComputerMove) {
-    console.log('wywołano funkcję displayResults z argumentami: ' + argPlayerMove + ', ' + argComputerMove);
-    if (argPlayerMove == 'papier' && argComputerMove == 'kamień') {
-    printMessage('Wygrywasz!');
-    } else if (argPlayerMove == 'kamień' && argComputerMove == 'nożyce') {
-    printMessage('Przegrywasz!');
-    } else if (argPlayerMove == 'nożyce' && argComputerMove == 'papier') {
-    printMessage('Wygrywasz!');
-    } else if (argPlayerMove == argComputerMove) {
-    printMessage('Remis');
-    } else {
-    printMessage('Przegrywasz!');
-    }
-    printMessage('Zagrałem ' + argComputerMove + 'Ty zagrales ' + argPlayerMove);
-}
-const buttonClicked = function (argButtonName) {
-    clearMessages();
-    console.log(argButtonName + ' został kliknięty');
-    
-    // let argMoveId, argPlayerMove, argComputerMove
-    
-    //GRACZ MOVE
+document.getElementById('test-button').addEventListener('click', function(){
 
-    console.log('ruch gracza to: ' + argButtonName);
-    let randomNumber = Math.floor(Math.random() * 3 + 1);
-    console.log('wylosowana liczba to: ' + randomNumber);
-    let computerMove = getMoveName(randomNumber);
-    console.log('ruch komputera to: ' + computerMove);
-    displayResult(argButtonName, computerMove);
+const titleClickHandler = function(){
+  console.log('Link was clicked!');
+  console.log(event);
+  
+  /* remove class 'active' from all article links  */
 
-   
+  /* add class 'active' to the clicked link */
+
+  /* remove class 'active' from all articles */
+
+  /* get 'href' attribute from the clicked link */
+
+  /* find the correct article using the selector (value of 'href' attribute) */
+
+  /* add class 'active' to the correct article */
 }
-buttonRock = document.getElementById('button-rock');
-buttonRock.addEventListener('click', function(){ buttonClicked('kamień'); });
-buttonPaper = document.getElementById('button-paper');
-buttonPaper.addEventListener('click', function(){ buttonClicked('papier'); });
-buttonScissors = document.getElementById('button-scissors');
-buttonScissors.addEventListener('click', function(){ buttonClicked('nożyce'); });
+
+const links = document.querySelectorAll('.titles a');
+
+for(let link of links){
+    
+  link.addEventListener('click', titleClickHandler());
 }
+});
