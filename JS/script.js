@@ -31,7 +31,7 @@ const optArticleSelector = '.post',
   optTitleListSelector = '.titles',
   optArticleTagsSelector = '.post-tags .list',
   optArticleAuthorSelector = '.post-author',
-  //optTagsListSelector = '.tags.list',
+  optTagsListSelector = '.tags.list',
   optCloudClassCount = '5',
   optCloudClassPrefix = 'tag-size-',
   optAuthorListSelector = '.author-name'
@@ -127,15 +127,21 @@ function generateTags(){
      /* [NEW] find list of tags in right column */
   const tagList = document.querySelector('.tags');
   /* [NEW] create variable for all links HTML code */
-  const tagsParams = calculateTagsParams(allTags);
-  console.log('tagsParams:', tagsParams)
   let allTagsHTML = '';
  /* [NEW] START LOOP: for each tag in allTags: */
  for(let tag in allTags){
     /* [NEW] generate code of a link and add it to allTagsHTML */
-    const taglinkHTML = '<li><a class="' + calculateTagClass(allTags[tag], tagsParams) + '" href="#tag-' + tag + '">' + tag + ' ' + '</a></li>'
-    console.log('taglinkHTML:', taglinkHTML)
-    allTagsHTML += taglinkHTML
+    allTagsHTML +=
+    '<li><a href="#tag-' +
+    tag +
+    '">' +
+    tag +
+    "</a> <span>" +
+    " (" +
+    allTags[tag] +
+    ") " +
+    "</span></li>";
+
     /* [NEW] END LOOP: for each tag in allTags: */
  }
  /*[NEW] add HTML from allTagsHTML to tagList */
@@ -243,10 +249,8 @@ function authorClickHandler(event){
   event.preventDefault();
   /* make new constant named "clickedElement" and give it the value of "this" */
   const clickedElement = this;
-  //console.log('author was Cliked')
   /* make a new constant "href" and read the attribute "href" of the clicked element */
   const href = clickedElement.getAttribute('href');
-  console.log(href)
   /* make a new constant "tag" and extract tag from the "href" constant */
   const tag = href.replace('#author-', '');
   /* find all tag links with class active */
