@@ -279,7 +279,7 @@ function generateAuthors(){
   /* [NEW] create variable for all links HTML code */
   const tagsParams = calculateTagsParams(allAuthors);
   // let allAuthorsHTML = '';
-  const allAuthorsData = {author: []};
+  const allAuthorsData = {authors: []};
 
   /* [NEW] START LOOP: for each tag in allAuthors: */
   for(let author in allAuthors){
@@ -287,7 +287,7 @@ function generateAuthors(){
     /* [NEW] generate code of a link and add it to allAuthorsHTML */
     // const authorlinkHTML =  '<li><a class="' + calculateTagClass(allAuthors[author], tagsParams) + '"href="#author-' + author + '">' + author + ' (' + allAuthors[author] + ') ' + '</a></li> ';
     // allAuthorsHTML += authorlinkHTML;
-    allAuthorsData.author.push({
+    allAuthorsData.authors.push({
       author: author,
       count: allAuthors[author],
       className: calculateTagClass(allAuthors[author], tagsParams)
